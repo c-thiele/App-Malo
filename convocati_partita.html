@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convocazione — Foglio di squadra U.S. MALO 1908</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --carbon-dark:#0B0F17;
+    --carbon-mid:#151C28;
+    --carbon-card:#1E293B;
+    --gold-glow:linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+    --gold-solid:#F59E0B;
+    --gold-accent:#FCD34D;
+    --chalk:#FFFFFF;
+    --panel-bg:#F8FAFC;
+    --panel-border:#E2E8F0;
+    --ink:#0F172A;
+    --ink-soft:#64748B;
+    --red:#EF4444;
+    --green-check:#10B981;
+    --card-shadow:0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#F1F5F9;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:940px;margin:20px auto 40px; background:#FFFFFF; border-radius:16px; overflow:hidden; box-shadow:0 20px 40px -15px rgba(15,23,42,0.12);}
+
+  /* HERO - DESIGN MODERNO CARBON & ORO HIGH-TECH */
+  .hero{
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(245, 158, 11, 0.15) 0%, transparent 75%),
+      linear-gradient(180deg, var(--carbon-dark) 0%, var(--carbon-mid) 100%);
+    color:#FFFFFF;
+    padding:22px 28px 18px;
+    position:relative;
+    border-bottom:4px solid var(--gold-solid);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+    background-size: 20px 20px;
+    pointer-events:none;
+  }
+
+  /* TESTATA UNIFICATA 3 COLONNE */
+  .header-main-row{
+    position:relative; z-index:1;
+    display:grid; grid-template-columns: 1fr auto 1fr;
+    align-items:center; gap:16px;
+    margin-bottom:10px; width:100%;
+  }
+  .header-left-title{
+    font-family:'Montserrat',sans-serif;
+    font-size:22px; font-weight:900;
+    color:#FFFFFF; letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-align:right;
+    background:transparent;
+    text-shadow:0 2px 6px rgba(0,0,0,0.7);
+  }
+  
+  .header-logo-box{
+    width:52px; height:52px;
+    background:rgba(255,255,255,0.05);
+    border:1.5px solid rgba(245,158,11,0.4);
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; position:relative; flex-shrink:0; margin:0 auto;
+    backdrop-filter:blur(8px);
+    transition:all 0.2s ease;
+  }
+  .header-logo-box:hover{border-color:var(--gold-solid); transform:scale(1.04);}
+  .header-logo-box img{
+    max-width:88%; max-height:88%; width:auto; height:auto;
+    object-fit:contain; object-position:center; display:block;
+    filter: drop-shadow(0px 2px 6px rgba(0,0,0,0.6));
+  }
+  .header-logo-box .plus-logo{
+    font-size:10px; font-weight:700; color:var(--gold-solid);
+    padding:3px 6px; white-space:nowrap;
+  }
+  .header-logo-box input[type=file]{display:none;}
+
+  .header-right-input{
+    background:transparent; border:none;
+    color:var(--gold-accent);
+    font-family:'Montserrat',sans-serif; font-size:20px; font-weight:800;
+    letter-spacing:0.06em; text-transform:uppercase; outline:none;
+    text-align:left; padding:2px 4px; width:100%;
+    text-shadow:0 2px 6px rgba(0,0,0,0.7);
+  }
+  .header-right-input::placeholder{color:rgba(255,255,255,0.35);}
+
+  /* RIGA 2: CAMPIONATO/TORNEO/GIRONE E GIORNATA */
+  .header-sub-row{
+    position:relative; z-index:1;
+    display:flex; align-items:center; justify-content:center; gap:12px;
+    width:100%; margin-bottom:14px;
+  }
+  .header-sub-row input{
+    background:transparent; border:none; color:rgba(255,255,255,0.9);
+    font-family:'Montserrat',sans-serif; letter-spacing:0.05em; text-align:center; outline:none;
+  }
+  .header-sub-row .comp{
+    font-size:12px; font-weight:700; text-transform:uppercase;
+    flex:0 1 410px; max-width:440px; min-width:200px;
+    border-bottom:1px solid rgba(255,255,255,0.2); padding:3px 6px;
+    transition:all 0.2s;
+  }
+  .header-sub-row .comp:focus{border-bottom-color:var(--gold-solid); color:#FFF;}
+  .header-sub-row .sep{color:var(--gold-solid); font-size:14px; opacity:0.9; flex-shrink:0;}
+  .header-sub-row .day{
+    font-size:12px; font-weight:600;
+    flex:0 0 110px;
+    border-bottom:1px solid rgba(255,255,255,0.2); padding:3px 6px;
+    transition:all 0.2s;
+  }
+  .header-sub-row .day:focus{border-bottom-color:var(--gold-solid); color:#FFF;}
+
+  /* BANNER CONVOCATI */
+  .match-banner{
+    position:relative; z-index:1;
+    text-align:center;
+    margin:6px 0 14px;
+    padding:5px 16px;
+    background:rgba(245, 158, 11, 0.08);
+    border:1px solid rgba(245, 158, 11, 0.3);
+    border-radius:30px;
+  }
+  .match-banner span{
+    font-family:'Montserrat',sans-serif;
+    font-size:13px; font-weight:800;
+    letter-spacing:0.25em;
+    color:var(--gold-accent);
+    text-transform:uppercase;
+    display:block;
+  }
+
+  /* LOGHI E SQUADRE VS */
+  .hero-top{
+    display:flex; align-items:center; justify-content:center; gap:24px;
+    position:relative; z-index:1;
+  }
+  .team-block{display:flex; flex-direction:column; align-items:center; gap:8px; flex:1; min-width:0;}
+  
+  .crest{
+    width:72px; height:72px;
+    background:rgba(255,255,255,0.03); border:1.5px solid rgba(255,255,255,0.15);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    overflow:visible; cursor:pointer; position:relative;
+    flex-shrink:0; padding:0; transition:all 0.25s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+  .crest:hover{border-color:var(--gold-solid); transform:translateY(-2px);}
+  .crest img{
+    max-width:85%; max-height:85%; width:auto; height:auto;
+    object-fit:contain; object-position:center; margin:auto; display:block;
+    filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.7));
+  }
+  .crest .plus{
+    font-family:'Montserrat',sans-serif; font-size:18px; font-weight:700;
+    color:var(--gold-solid); border:1.5px dashed rgba(245, 158, 11, 0.5);
+    border-radius:50%; width:44px; height:44px;
+    display:flex; align-items:center; justify-content:center;
+    transition:all 0.2s;
+  }
+  .crest:hover .plus{border-color:var(--gold-solid); background:rgba(245,158,11,0.2);}
+  .crest input[type=file]{display:none;}
+  
+  .team-name-input{
+    background:transparent; border:none; border-bottom:1.5px solid rgba(255,255,255,0.25);
+    color:#FFFFFF; font-family:'Montserrat',sans-serif; font-size:17px; font-weight:800;
+    text-align:center; text-transform:uppercase; letter-spacing:0.04em;
+    width:100%; padding:4px 4px; outline:none; transition:all 0.2s;
+  }
+  .team-name-input::placeholder{color:rgba(255,255,255,0.35);}
+  .team-name-input:focus{border-bottom-color:var(--gold-solid);}
+  .vs{
+    font-family:'Montserrat',sans-serif; font-weight:900; font-size:18px;
+    color:var(--carbon-dark);
+    background:var(--gold-glow);
+    padding:6px 12px; border-radius:8px;
+    letter-spacing:0.1em; flex-shrink:0;
+    box-shadow:0 4px 12px rgba(245, 158, 11, 0.3);
+  }
+
+  /* HERO META - LUOGO, DATA E ORA LEGGIBILI E IN EVIDENZA */
+  .hero-meta{
+    position:relative; z-index:1;
+    margin-top:16px; padding-top:14px;
+    border-top:1px dashed rgba(245,158,11,0.35);
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .meta-row{
+    display:grid; grid-template-columns:1fr 1fr; gap:14px;
+  }
+  .meta-field{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; text-align:center;
+    background:rgba(255, 255, 255, 0.05);
+    border:1px solid rgba(245, 158, 11, 0.3);
+    border-radius:10px; padding:6px 10px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .meta-field label{
+    font-size:11px; font-weight:900; color:var(--gold-accent); text-transform:uppercase; letter-spacing:0.12em; text-align:center;
+  }
+  .meta-field input{
+    background:transparent; border:none;
+    color:#FFFFFF; font-family:'JetBrains Mono',monospace;
+    font-size:15px; font-weight:800; padding:2px 4px; width:100%; text-align:center; outline:none;
+    transition:all 0.2s;
+  }
+  .meta-field input:focus{color:var(--gold-accent);}
+  .meta-field input::-webkit-calendar-picker-indicator{filter:invert(0.9); cursor:pointer;}
+  .meta-field input::placeholder{color:rgba(255,255,255,0.4); font-family:'Inter',sans-serif; font-size:13px; font-weight:600;}
+
+  /* BODY SULLO SFONDO BIANCO */
+  .content{padding:16px 20px 0;}
+  
+  /* TABELLA E PANNELLI CON DESIGN CURATO */
+  .panel{
+    background:var(--panel-bg);
+    border:1px solid var(--panel-border);
+    border-radius:12px;
+    padding:12px 14px; margin-bottom:12px;
+    box-shadow: var(--card-shadow);
+  }
+
+  /* NOTE GENERALI MULTIRIGA */
+  .note-row textarea, .note-row .export-value{
+    font-family:'Inter',sans-serif; font-size:13px; border:1px solid var(--panel-border);
+    background:#FFFFFF; border-radius:8px; padding:8px 12px; resize:vertical; min-height:42px; outline:none; color:var(--ink); width:100%;
+    white-space:pre-wrap; word-break:break-word; line-height:1.45;
+    transition:border-color 0.2s, box-shadow 0.2s;
+  }
+  .note-row textarea:focus{border-color:var(--carbon-mid); box-shadow:0 0 0 3px rgba(15,23,42,0.05);}
+
+  /* ROSTER TABLE */
+  table{width:100%; border-collapse:separate; border-spacing:0; background:var(--panel-bg); border-radius:10px; overflow:hidden;}
+  thead th{
+    text-align:left; font-size:11px; font-family:'Montserrat',sans-serif; text-transform:uppercase; letter-spacing:0.08em;
+    color:#FFFFFF; background:var(--carbon-mid); padding:8px 8px; font-weight:800; border-bottom:2px solid var(--gold-solid);
+  }
+  tbody tr{border-bottom:1px solid var(--panel-border); transition:background 0.15s;}
+  tbody tr:nth-child(even){background:rgba(241,245,249,0.5);}
+  tbody tr:hover{background:rgba(226,232,240,0.6);}
+  
+  /* ESCLUSI: ATTENUATO SOLO IL NOME E RUOLO */
+  tbody tr.excluded input[data-act="nome"],
+  tbody tr.excluded input[data-act="ruolo"]{
+    opacity:0.35; color:#64748B;
+  }
+  tbody tr.excluded td.col-note input{
+    opacity:1.0 !important; color:var(--ink) !important; font-weight:500;
+  }
+
+  td{padding:4px 6px; vertical-align:middle; height:32px; border-bottom:1px solid #E2E8F0;}
+  
+  td input[type=text]{
+    width:100%; border:1px solid transparent; background:transparent; font-family:'Inter',sans-serif;
+    font-size:13px; font-weight:500; padding:2px 5px; border-radius:6px; outline:none; color:var(--ink);
+    transition:all 0.15s;
+  }
+  td input.input-nome{
+    font-size:14px; font-weight:700; color:var(--ink);
+  }
+  td input:focus{border-color:var(--panel-border); background:#FFFFFF; box-shadow:0 1px 3px rgba(0,0,0,0.05);}
+  td.col-num input{
+    width:42px; text-align:center; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:800; color:var(--carbon-dark); padding:1px 0;
+  }
+
+  td.col-check{text-align:center; white-space:nowrap;}
+  input[type=checkbox]{width:17px; height:17px; accent-color:var(--carbon-dark); cursor:pointer; vertical-align:middle;}
+  .green-check{
+    color:var(--green-check);
+    font-weight:900;
+    font-size:16px;
+    vertical-align:middle;
+    margin-left:2px;
+    display:inline-block;
+  }
+
+  .rm-btn{
+    background:none; border:none; color:#94A3B8; cursor:pointer; font-size:14px;
+    width:24px; height:24px; border-radius:6px; line-height:1; padding:0; transition:all 0.15s;
+  }
+  .rm-btn:hover{background:rgba(239,68,68,0.1); color:var(--red);}
+
+  .add-row-btn{
+    margin-top:10px; background:#FFFFFF; border:1.5px dashed var(--panel-border); color:var(--carbon-mid);
+    font-family:'Inter',sans-serif; font-weight:700; font-size:12px; padding:8px 12px;
+    border-radius:8px; cursor:pointer; width:100%; transition:all 0.2s;
+  }
+  .add-row-btn:hover{border-color:var(--carbon-mid); background:#F1F5F9; transform:translateY(-1px);}
+
+  .roster-toolbar{display:flex; gap:8px; margin-bottom:8px; flex-wrap:wrap;}
+  .roster-toolbar .count{
+    font-size:12px; color:var(--ink-soft); font-weight:700; align-self:center; margin-left:auto;
+  }
+
+  /* FOOTER BRANDING */
+  .footer-branding{
+    margin:14px 20px 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+  .footer-logo-box{
+    height:50px;
+    background:transparent;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; position:relative;
+  }
+  .footer-logo-box img{
+    max-height:100%; max-width:220px; width:auto; height:auto;
+    object-fit:contain; display:block;
+  }
+  .footer-logo-box .plus-logo{
+    font-size:11px; font-weight:700; color:var(--ink-soft);
+    border:1px dashed var(--panel-border); border-radius:6px;
+    padding:5px 12px; background:#FFFFFF; white-space:nowrap;
+  }
+  .footer-logo-box input[type=file]{display:none;}
+
+  .footer-motto{
+    width:100%;
+    border-top:1px solid var(--panel-border);
+    padding-top:8px;
+    text-align:center;
+  }
+  .footer-motto span{
+    font-family:'Montserrat',sans-serif; font-size:11px; letter-spacing:0.3em;
+    color:var(--ink-soft); text-transform:uppercase; font-weight:800;
+  }
+
+  /* BUTTONS CON STYLE ELEGANTE */
+  .btn{
+    font-family:'Inter',sans-serif; font-weight:700; font-size:12px; border-radius:8px;
+    padding:9px 15px; cursor:pointer; border:1px solid transparent; transition:all 0.2s;
+    display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 5px rgba(0,0,0,0.05);
+  }
+  .btn-primary{background:var(--carbon-dark); color:#FFFFFF;}
+  .btn-primary:hover{background:var(--carbon-mid); transform:translateY(-1px);}
+  .btn-ghost{background:#FFFFFF; color:var(--ink); border-color:var(--panel-border);}
+  .btn-ghost:hover{border-color:var(--ink-soft); background:#F8FAFC;}
+  .btn-gold{background:var(--gold-glow); color:var(--carbon-dark); font-weight:800; border:none; box-shadow:0 4px 12px rgba(245,158,11,0.25);}
+  .btn-gold:hover{filter:brightness(1.08); transform:translateY(-1px);}
+
+  .action-bar{
+    display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+    padding:12px 20px 6px;
+  }
+  .status-msg{
+    text-align:center; font-size:12px; color:var(--carbon-dark); font-weight:700; min-height:18px; padding-top:4px;
+  }
+
+  /* PRINT STYLES - BILANCIATO E PROPORZIONATO SU 1 PAGINA A4 */
+  @page{ size:A4 portrait; margin:5mm 8mm; }
+  @media print{
+    html, body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; height:100%; background:#fff !important; }
+    .wrap{margin:0 !important; max-width:100% !important; border-radius:0 !important; box-shadow:none !important; padding-bottom:0;}
+    .no-print{display:none !important;}
+    tr.hide-on-print{display:none !important;}
+    
+    .hero{
+      background:var(--carbon-dark) !important;
+      color:#FFFFFF !important; padding:10px 14px 10px !important; border-radius:8px !important;
+      border-bottom:3.5px solid var(--gold-solid) !important;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+    .hero::before{display:none;}
+    .header-main-row{margin-bottom:4px;}
+    .header-left-title{font-size:18px !important; background:none !important; color:#FFFFFF !important;}
+    .header-logo-box{width:40px; height:40px; border:none !important; background:transparent !important;}
+    .header-logo-box .plus-logo{display:none;}
+    .header-right-input{font-size:18px !important; color:var(--gold-accent) !important;}
+    
+    .header-sub-row{margin-bottom:4px;}
+    .header-sub-row input{color:#FFFFFF !important; font-size:11px;}
+    .header-sub-row .comp{border-bottom-color:rgba(255,255,255,0.4) !important; padding:2px 4px !important;}
+    .header-sub-row .day{border-bottom-color:rgba(255,255,255,0.4) !important; padding:2px 4px !important;}
+
+    .match-banner{
+      background: rgba(245,158,11,0.15) !important;
+      border-color: var(--gold-solid) !important;
+      margin: 4px 0 6px !important;
+      padding: 2px 6px !important;
+    }
+    .match-banner span{ color: var(--gold-accent) !important; font-size: 11.5px !important; letter-spacing:0.2em; }
+
+    .crest{width:44px; height:44px; background:transparent !important; border:none !important; box-shadow:none !important;}
+    .crest img{max-width:100%; max-height:100%; object-fit:contain !important; margin:auto;}
+    .team-name-input{color:#FFFFFF !important; border-bottom-color:rgba(255,255,255,0.4); font-size:15px !important; font-weight:800;}
+    .vs{color:var(--carbon-dark) !important; background:var(--gold-solid) !important; padding:3px 8px !important; font-size:13px !important; box-shadow:none !important;}
+    
+    .hero-meta{border-top-color:rgba(255,255,255,0.2); margin-top:6px; padding-top:6px; gap:6px;}
+    .meta-row{gap:10px;}
+    .meta-field{
+      background:rgba(255,255,255,0.08) !important;
+      border:1px solid rgba(245,158,11,0.4) !important;
+      padding:3px 6px !important; border-radius:6px !important;
+    }
+    .meta-field label{color:var(--gold-accent) !important; font-size:9.5px !important; font-weight:900 !important;}
+    .meta-field input{
+      color:#FFFFFF !important; font-size:13.5px !important; padding:1px 0 !important; font-weight:800 !important; text-align:center !important;
+    }
+    
+    .panel{border:none; padding:0; margin-bottom:8px; background:var(--panel-bg) !important; box-shadow:none !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .content{padding:8px 0 0;}
+    
+    .note-row textarea, .note-row div{
+      border:none; padding:0; min-height:0; font-size:11px; color:#111;
+      white-space:pre-wrap !important; word-break:break-word; background:transparent !important;
+    }
+    
+    table{background:var(--panel-bg) !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    thead th{padding:4px 6px; font-size:10px; color:#FFFFFF !important; background:var(--carbon-dark) !important; border-bottom:1.5px solid var(--gold-solid) !important;}
+    tbody tr:nth-child(even){background:rgba(0,0,0,0.03) !important;}
+    
+    tbody tr.excluded input[data-act="nome"],
+    tbody tr.excluded input[data-act="ruolo"]{ opacity:0.35 !important; color:#64748B !important; }
+    tbody tr.excluded td.col-note input{ opacity:1.0 !important; color:#111 !important; font-weight:500 !important; }
+    
+    td{padding:1px 4px; height:22px; border-bottom-color:#CBD5E1;}
+    td input{font-size:11.5px; padding:1px 2px; color:var(--ink) !important; height:22px; line-height:22px;}
+    td input.input-nome{font-size:12.5px !important; font-weight:700 !important;}
+    td.col-num input{width:38px !important; color:var(--carbon-dark) !important; font-weight:800; text-align:center; padding:0 !important;}
+    
+    td.col-check input[type=checkbox]{ display:none !important; }
+    .green-check{ color:var(--green-check) !important; font-size:13px; font-weight:bold; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    
+    .rm-btn{display:none;}
+    .footer-branding{margin:8px 0 0; gap:4px;}
+    .footer-motto{border-top-color:var(--panel-border); padding-top:4px;}
+    .footer-logo-box{height:36px;}
+    .footer-logo-box .plus-logo{display:none;}
+    .footer-motto span{color:var(--carbon-dark) !important; font-size:9.5px;}
+  }
+
+  /* EXPORT SHEET (per Immagine) */
+  .export-sheet{
+    position:fixed; top:0; left:-99999px; width:760px; margin:0; padding:0; background:#FFFFFF;
+  }
+  .export-sheet .hero{padding:14px 20px 12px;}
+  .export-sheet .header-main-row{margin-bottom:6px;}
+  .export-sheet .header-left-title{font-size:19px; background:none !important; color:#FFFFFF !important;}
+  .export-sheet .header-logo-box{width:40px; height:40px; border:none; background:transparent;}
+  .export-sheet .header-logo-box .plus-logo{display:none;}
+  .export-sheet .header-right-input{font-size:19px;}
+  .export-sheet .header-sub-row{margin-bottom:10px;}
+  .export-sheet .crest{width:58px; height:58px; border:none; box-shadow:none;}
+  .export-sheet .crest img{max-width:100%; max-height:100%; object-fit:contain !important; margin:auto;}
+  .export-sheet .plus{display:none;}
+  .export-sheet .vs{padding:4px 10px; font-size:14px;}
+  .export-sheet .hero-meta{margin-top:10px; padding-top:8px;}
+  .export-sheet .meta-field{text-align:center; align-items:center; background:rgba(255,255,255,0.06); border:1px solid rgba(245,158,11,0.3); padding:4px 8px; border-radius:8px;}
+  .export-sheet .meta-field label{font-size:10.5px; font-weight:900; color:var(--gold-accent);}
+  .export-sheet .meta-field .export-value{
+    color:#FFFFFF; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; padding:1px 2px;
+    background:transparent; border:none;
+    text-align:center; display:block; min-height:16px;
+  }
+  .export-sheet .content{padding:10px 16px 0;}
+  .export-sheet .panel{padding:8px 12px 10px; margin-bottom:10px; background:var(--panel-bg);}
+  .export-sheet table{background:var(--panel-bg);}
+  .export-sheet thead th{padding:5px 6px; font-size:10.5px;}
+  .export-sheet td{padding:3px 6px; height:25px;}
+  .export-sheet .export-value{
+    display:inline-block; width:100%; font-family:'Inter',sans-serif; font-size:12.5px; color:var(--ink);
+    white-space:pre-wrap; word-break:break-word;
+  }
+  .export-sheet .export-value.input-nome{
+    font-size:13.5px !important; font-weight:700 !important;
+  }
+  .export-sheet .header-left-title.export-value{
+    color:#FFFFFF !important; font-family:'Montserrat',sans-serif; font-size:19px; font-weight:900; text-align:right; background:none !important;
+  }
+  .export-sheet .header-right-input.export-value{
+    color:var(--gold-accent) !important; font-family:'Montserrat',sans-serif; font-size:19px; font-weight:800; text-align:left;
+  }
+  .export-sheet div.export-value{font-size:12.5px; min-height:12px; white-space:pre-wrap;}
+  .export-sheet .team-name-input.export-value{
+    font-family:'Montserrat',sans-serif; font-size:15px; font-weight:800; color:#FFFFFF;
+    text-transform:uppercase; letter-spacing:0.03em; border-bottom:1px solid rgba(255,255,255,0.3); padding:2px; text-align:center;
+  }
+  .export-sheet .comp.export-value, .export-sheet .day.export-value{
+    font-size:11.5px; color:rgba(255,255,255,0.95); text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.25); padding:2px; text-align:center;
+  }
+  .export-sheet td.col-num .export-value{width:42px; text-align:center; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:800; color:var(--carbon-dark); display:inline-block;}
+  .export-sheet .footer-branding{margin:10px 16px 0; padding-bottom:10px;}
+  .export-sheet .footer-logo-box{height:48px;}
+  .export-sheet .footer-logo-box .plus-logo{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <!-- RIGA 1: NOME FISSO | LOGO CENTRATO | CAMPO LIBERO MODIFICABILE STESSA GRANDEZZA -->
+    <div class="header-main-row">
+      <div class="header-left-title">U.S. MALO 1908</div>
+      <label class="header-logo-box" id="headerLogoBox" title="Carica stemma/logo società">
+        <img id="headerLogoImg" style="display:none;">
+        <span class="plus-logo" id="headerLogoPlus">+ Logo</span>
+        <input type="file" accept="image/*" id="fileHeaderLogo">
+      </label>
+      <input class="header-right-input" id="headerCustomText" placeholder="Settore Giovanile">
+    </div>
+
+    <!-- RIGA 2: CAMPIONATO/TORNEO/GIRONE E GIORNATA -->
+    <div class="header-sub-row">
+      <input class="comp" id="competitionName" placeholder="CAMPIONATO REGIONALE ELITE UNDER 15 - GIRONE A">
+      <span class="sep">·</span>
+      <input class="day" id="matchday" placeholder="Giornata n.">
+    </div>
+
+    <!-- BANNER CONVOCATI -->
+    <div class="match-banner">
+      <span>CONVOCATI PER LA PARTITA</span>
+    </div>
+
+    <div class="hero-top">
+      <div class="team-block">
+        <label class="crest" id="crestOwn">
+          <img id="crestOwnImg" style="display:none;">
+          <span class="plus" id="crestOwnPlus">+</span>
+          <input type="file" accept="image/*" id="fileOwn">
+        </label>
+        <input class="team-name-input" id="teamOwnName" placeholder="Squadra Casa">
+      </div>
+      <div class="vs">VS</div>
+      <div class="team-block">
+        <label class="crest" id="crestOpp">
+          <img id="crestOppImg" style="display:none;">
+          <span class="plus" id="crestOppPlus">+</span>
+          <input type="file" accept="image/*" id="fileOpp">
+        </label>
+        <input class="team-name-input" id="teamOppName" placeholder="Avversario">
+      </div>
+    </div>
+
+    <div class="hero-meta">
+      <!-- RIGA 1: DATA E LUOGO -->
+      <div class="meta-row">
+        <div class="meta-field">
+          <label>Data</label>
+          <input type="date" id="matchDate">
+        </div>
+        <div class="meta-field">
+          <label>Luogo</label>
+          <input type="text" id="matchPlace" placeholder="Luogo / Campo">
+        </div>
+      </div>
+      <!-- RIGA 2: ORARI -->
+      <div class="meta-row">
+        <div class="meta-field">
+          <label>Ora Convocazione</label>
+          <input type="time" id="callTime">
+        </div>
+        <div class="meta-field">
+          <label>Ora Inizio Partita</label>
+          <input type="time" id="matchTime">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="panel">
+      <div class="note-row">
+        <textarea id="generalNotes" placeholder="Note generali (ritrovo, divisa, materiale da portare...)"></textarea>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="roster-toolbar no-print">
+        <button class="btn btn-ghost" id="btnSaveRoster">💾 Salva dati e rosa</button>
+        <button class="btn btn-ghost" id="btnExportBackup" title="Scarica un file di salvataggio per trasferirlo su altri PC">📤 Esporta Backup</button>
+        <button class="btn btn-ghost" id="btnImportBackupTrigger" title="Carica un file di salvataggio per ripristinare dati e loghi">📥 Importa Backup</button>
+        <input type="file" id="fileImportBackup" accept=".json" style="display:none;">
+        <button class="btn btn-ghost" id="btnSelectAll">Seleziona tutti</button>
+        <button class="btn btn-ghost" id="btnClearMatch">Nuova convocazione</button>
+        <span class="count" id="countLabel"></span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="col-check" style="width:44px;">Conv.</th>
+            <th style="width:48px;">N°</th>
+            <th style="width:38%;">Nome</th>
+            <th style="width:155px;">Ruolo</th>
+            <th>Note</th>
+            <th style="width:30px;" class="no-print"></th>
+          </tr>
+        </thead>
+        <tbody id="rosterBody"></tbody>
+      </table>
+      <button class="add-row-btn no-print" id="btnAddPlayer">+ Aggiungi giocatore</button>
+    </div>
+
+    <!-- FOOTER CON LOGO SOPRA LA RIGA E MOTTO SOTTO -->
+    <div class="footer-branding">
+      <label class="footer-logo-box" id="footerLogoBox" title="Carica altro logo piè di pagina">
+        <img id="footerLogoImg" style="display:none;">
+        <span class="plus-logo" id="footerLogoPlus">+ Logo piè pagina</span>
+        <input type="file" accept="image/*" id="fileFooterLogo">
+      </label>
+      <div class="footer-motto"><span>Hic manebimus optime</span></div>
+    </div>
+
+  </div>
+
+  <div class="action-bar no-print">
+    <button class="btn btn-gold" id="btnPrintNative">🖨️ Stampa / Salva PDF Vettoriale</button>
+    <button class="btn btn-ghost" id="btnSaveRoster2">💾 Salva dati e rosa</button>
+    <button class="btn btn-ghost" id="btnImage">🖼 Genera immagine</button>
+    <button class="btn btn-ghost" id="btnExportBackup2" title="Esporta file di backup">📤 Esporta Backup</button>
+    <button class="btn btn-ghost" id="btnImportBackupTrigger2" title="Importa file di backup">📥 Importa Backup</button>
+    <button class="btn btn-ghost" id="btnReset">↺ Azzera tutto</button>
+  </div>
+  <div class="status-msg no-print" id="statusMsg"></div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+let players = [];
+let idCounter = 1;
+
+let headerLogoData = null;
+let ownLogoData = null;
+let oppLogoData = null;
+let footerLogoData = null;
+
+function newPlayer(numero, nome, ruolo){
+  return {id: idCounter++, numero: numero||'', nome: nome||'', ruolo: ruolo||'', note:'', convocato:true};
+}
+
+// Genera automaticamente un progressivo solo per i convocati
+function renderRoster(){
+  const body = document.getElementById('rosterBody');
+  if(!body) return;
+  body.innerHTML = '';
+  
+  let numProg = 1;
+  players.forEach(p => {
+    if (p.convocato) {
+      p.numero = numProg++;
+    } else {
+      p.numero = '';
+    }
+  });
+
+  players.forEach(p=>{
+    const tr = document.createElement('tr');
+    
+    // Controlla se la riga è completamente vuota e non spuntata
+    const isEmpty = !(p.nome||'').trim() && !(p.ruolo||'').trim() && !(p.note||'').trim();
+    const hideOnPrint = !p.convocato && isEmpty;
+
+    let trClasses = [];
+    if(!p.convocato) trClasses.push('excluded');
+    if(hideOnPrint) trClasses.push('hide-on-print');
+    
+    tr.className = trClasses.join(' ');
+    tr.innerHTML = `
+      <td class="col-check">
+        <input type="checkbox" class="no-print" ${p.convocato?'checked':''} data-act="convocato" data-id="${p.id}">
+        ${p.convocato ? '<span class="green-check">✔</span>' : ''}
+      </td>
+      <td class="col-num"><input type="text" value="${escapeAttr(p.numero)}" maxlength="3" data-act="numero" data-id="${p.id}"></td>
+      <td><input type="text" class="input-nome" value="${escapeAttr(p.nome)}" placeholder="Nome cognome" data-act="nome" data-id="${p.id}"></td>
+      <td><input type="text" class="input-ruolo" value="${escapeAttr(p.ruolo)}" placeholder="Ruolo" data-act="ruolo" data-id="${p.id}"></td>
+      <td class="col-note"><input type="text" value="${escapeAttr(p.note)}" placeholder="—" data-act="note" data-id="${p.id}"></td>
+      <td class="no-print"><button class="rm-btn" data-act="remove" data-id="${p.id}">✕</button></td>
+    `;
+    body.appendChild(tr);
+  });
+  const count = players.filter(p=>p.convocato).length;
+  const label = document.getElementById('countLabel');
+  if(label) label.textContent = count + ' convocat' + (count===1?'o':'i') + ' su ' + players.length;
+}
+
+function escapeAttr(s){
+  return (s||'').toString().replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+}
+
+function getMatchFilename(ext){
+  const own = document.getElementById('teamOwnName').value.trim() || 'U.S. MALO 1908';
+  const opp = document.getElementById('teamOppName').value.trim();
+  const baseName = opp ? `${own} - ${opp}` : own;
+  const safeName = baseName.replace(/[/\\?%*:|"<>]/g, '-');
+  return ext ? `${safeName}.${ext}` : safeName;
+}
+
+document.getElementById('rosterBody').addEventListener('input', e=>{
+  const act = e.target.dataset.act, id = Number(e.target.dataset.id);
+  const p = players.find(x=>x.id===id);
+  if(!p) return;
+  if(act==='numero') p.numero = e.target.value;
+  if(act==='nome') p.nome = e.target.value;
+  if(act==='ruolo') p.ruolo = e.target.value;
+  if(act==='note') p.note = e.target.value;
+  saveAllData();
+});
+
+document.getElementById('rosterBody').addEventListener('change', e=>{
+  if(e.target.dataset.act==='convocato'){
+    const id = Number(e.target.dataset.id);
+    const p = players.find(x=>x.id===id);
+    if(p){ p.convocato = e.target.checked; renderRoster(); saveAllData(); }
+  }
+});
+
+document.getElementById('rosterBody').addEventListener('click', e=>{
+  if(e.target.dataset.act==='remove'){
+    const id = Number(e.target.dataset.id);
+    players = players.filter(x=>x.id!==id);
+    renderRoster();
+    saveAllData();
+  }
+});
+
+document.getElementById('btnAddPlayer').addEventListener('click', ()=>{
+  players.push(newPlayer());
+  renderRoster();
+  saveAllData();
+});
+
+document.getElementById('btnSelectAll').addEventListener('click', ()=>{
+  players.forEach(p=>p.convocato=true);
+  renderRoster();
+  saveAllData();
+});
+
+document.getElementById('btnClearMatch').addEventListener('click', ()=>{
+  players.forEach(p=>{p.convocato=true; p.note='';});
+  document.getElementById('teamOppName').value='';
+  document.getElementById('matchday').value='';
+  document.getElementById('matchDate').value='';
+  document.getElementById('matchPlace').value='';
+  document.getElementById('callTime').value='';
+  document.getElementById('matchTime').value='';
+  document.getElementById('generalNotes').value='';
+  setCrestImage('opp', null);
+  renderRoster();
+  saveAllData();
+  showStatus('Pronto per una nuova convocazione.');
+});
+
+function showStatus(msg){
+  const el = document.getElementById('statusMsg');
+  if(!el) return;
+  el.textContent = msg;
+  setTimeout(()=>{ if(el.textContent===msg) el.textContent=''; }, 4000);
+}
+
+/* STAMPA NATIVA / PDF VETTORIALE */
+document.getElementById('btnPrintNative').addEventListener('click', ()=>{
+  const oldTitle = document.title;
+  document.title = getMatchFilename();
+  window.print();
+  setTimeout(()=>{ document.title = oldTitle; }, 1000);
+});
+
+function buildExportSheet(){
+  const source = document.querySelector('.wrap');
+  const clone = source.cloneNode(true);
+  clone.classList.add('export-sheet');
+  clone.removeAttribute('id');
+
+  clone.querySelectorAll('.no-print').forEach(el=>el.remove());
+  clone.querySelectorAll('tr.hide-on-print').forEach(el=>el.remove());
+  clone.querySelectorAll('input[type=file]').forEach(el=>el.remove());
+  clone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
+
+  clone.querySelectorAll('input, textarea').forEach(el=>{
+    if(el.type==='file') return;
+    const isArea = el.tagName.toLowerCase()==='textarea';
+    const tag = isArea ? 'div' : 'span';
+    const rep = document.createElement(tag);
+    rep.className = el.className + ' export-value';
+    if(isArea) rep.style.whiteSpace = 'pre-wrap';
+    
+    let val = el.value || '';
+    if(el.type==='date' && val){
+      const parts = val.split('-');
+      val = parts.length===3 ? `${parts[2]}/${parts[1]}/${parts[0]}` : val;
+    }
+    rep.textContent = val;
+    el.replaceWith(rep);
+  });
+
+  document.body.appendChild(clone);
+  return clone;
+}
+
+async function captureSheet(){
+  const sheet = buildExportSheet();
+  await new Promise(r=>setTimeout(r, 60));
+  try{
+    const canvas = await html2canvas(sheet, {scale:2, backgroundColor:'#FFFFFF', useCORS:true});
+    return canvas;
+  } finally {
+    sheet.remove();
+  }
+}
+
+document.getElementById('btnImage').addEventListener('click', async ()=>{
+  showStatus('Generazione immagine in corso…');
+  try{
+    const canvas = await captureSheet();
+    const link = document.createElement('a');
+    link.download = getMatchFilename('png');
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    showStatus('Immagine generata ✓');
+  }catch(err){
+    console.error(err);
+    showStatus("Errore nella generazione dell'immagine.");
+  }
+});
+
+function setHeaderLogoImage(dataUrl){
+  const img = document.getElementById('headerLogoImg');
+  const plus = document.getElementById('headerLogoPlus');
+  headerLogoData = dataUrl;
+  if(dataUrl){
+    if(img){ img.src = dataUrl; img.style.display='block'; }
+    if(plus) plus.style.display='none';
+  } else {
+    if(img){ img.removeAttribute('src'); img.style.display='none'; }
+    if(plus) plus.style.display='inline-block';
+  }
+}
+
+function setFooterLogoImage(dataUrl){
+  const img = document.getElementById('footerLogoImg');
+  const plus = document.getElementById('footerLogoPlus');
+  footerLogoData = dataUrl;
+  if(dataUrl){
+    if(img){ img.src = dataUrl; img.style.display='block'; }
+    if(plus) plus.style.display='none';
+  } else {
+    if(img){ img.removeAttribute('src'); img.style.display='none'; }
+    if(plus) plus.style.display='inline-block';
+  }
+}
+
+function setCrestImage(which, dataUrl){
+  const img = document.getElementById(which==='own' ? 'crestOwnImg' : 'crestOppImg');
+  const plus = document.getElementById(which==='own' ? 'crestOwnPlus' : 'crestOppPlus');
+  if(which==='own') ownLogoData = dataUrl;
+  if(which==='opp') oppLogoData = dataUrl;
+  
+  if(dataUrl){
+    if(img){ img.src = dataUrl; img.style.display='block'; }
+    if(plus) plus.style.display='none';
+  } else {
+    if(img){ img.removeAttribute('src'); img.style.display='none'; }
+    if(plus) plus.style.display='flex';
+  }
+}
+
+function wireFileInputs(){
+  document.getElementById('fileHeaderLogo').addEventListener('change', e=>{
+    const file = e.target.files[0]; if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev=>{ setHeaderLogoImage(ev.target.result); saveAllData(); };
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('fileFooterLogo').addEventListener('change', e=>{
+    const file = e.target.files[0]; if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev=>{ setFooterLogoImage(ev.target.result); saveAllData(); };
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('fileOwn').addEventListener('change', e=>{
+    const file = e.target.files[0]; if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev=>{ setCrestImage('own', ev.target.result); saveAllData(); };
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('fileOpp').addEventListener('change', e=>{
+    const file = e.target.files[0]; if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev=>{ setCrestImage('opp', ev.target.result); saveAllData(); };
+    reader.readAsDataURL(file);
+  });
+}
+wireFileInputs();
+
+/* SALVATAGGIO INTEGRALE DI TUTTI I DATI E LOGHI */
+function getFullStateObject(){
+  return {
+    headerLogo: headerLogoData,
+    headerCustomText: document.getElementById('headerCustomText').value,
+    ownLogo: ownLogoData,
+    oppLogo: oppLogoData,
+    footerLogo: footerLogoData,
+    teamOwnName: document.getElementById('teamOwnName').value,
+    teamOppName: document.getElementById('teamOppName').value,
+    competitionName: document.getElementById('competitionName').value,
+    matchday: document.getElementById('matchday').value,
+    matchDate: document.getElementById('matchDate').value,
+    matchPlace: document.getElementById('matchPlace').value,
+    callTime: document.getElementById('callTime').value,
+    matchTime: document.getElementById('matchTime').value,
+    generalNotes: document.getElementById('generalNotes').value,
+    players: players.map(p=>({
+      convocato: p.convocato,
+      nome: p.nome,
+      ruolo: p.ruolo,
+      note: p.note
+    }))
+  };
+}
+
+function saveAllData(){
+  try{
+    const fullState = getFullStateObject();
+    localStorage.setItem('malo-convocazione-full-data', JSON.stringify(fullState));
+  }catch(err){ console.error('Errore salvataggio integrale', err); }
+}
+
+function handleManualSave(){
+  saveAllData();
+  showStatus('Tutti i dati, loghi e rosa salvati ✓ — pronti anche al riavvio.');
+}
+
+/* ESPORTA E IMPORTA BACKUP (JSON) */
+function exportBackupData(){
+  saveAllData();
+  const fullState = getFullStateObject();
+  const jsonStr = JSON.stringify(fullState, null, 2);
+  const blob = new Blob([jsonStr], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `backup_convocazione_${getMatchFilename()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showStatus('File di backup scaricato con successo ✓');
+}
+
+function importBackupData(file){
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try{
+      const data = JSON.parse(e.target.result);
+      if(!data || typeof data !== 'object'){
+        throw new Error("Formato non valido");
+      }
+      localStorage.setItem('malo-convocazione-full-data', JSON.stringify(data));
+      init();
+      showStatus('Dati e loghi ripristinati con successo dal backup! ✓');
+    }catch(err){
+      alert('Errore nel caricamento del file di backup. Assicurati che sia un file .json valido.');
+      console.error(err);
+    }
+  };
+  reader.readAsText(file);
+}
+
+document.getElementById('btnExportBackup').addEventListener('click', exportBackupData);
+document.getElementById('btnExportBackup2').addEventListener('click', exportBackupData);
+
+const fileImport = document.getElementById('fileImportBackup');
+document.getElementById('btnImportBackupTrigger').addEventListener('click', ()=> fileImport.click());
+document.getElementById('btnImportBackupTrigger2').addEventListener('click', ()=> fileImport.click());
+
+fileImport.addEventListener('change', e=>{
+  if(e.target.files && e.target.files[0]){
+    importBackupData(e.target.files[0]);
+    e.target.value = '';
+  }
+});
+
+document.getElementById('btnSaveRoster').addEventListener('click', handleManualSave);
+document.getElementById('btnSaveRoster2').addEventListener('click', handleManualSave);
+
+// Auto-salvataggio sui campi di testo
+['headerCustomText','teamOwnName','teamOppName','competitionName','matchday','matchDate','matchPlace','callTime','matchTime','generalNotes'].forEach(id=>{
+  const el = document.getElementById(id);
+  if(el) el.addEventListener('input', saveAllData);
+});
+
+document.getElementById('btnReset').addEventListener('click', ()=>{
+  if(!confirm('Vuoi azzerare tutto, compresi tutti i dati e i loghi salvati?')) return;
+  players = [];
+  renderRoster();
+  document.getElementById('headerCustomText').value='';
+  document.getElementById('competitionName').value='';
+  document.getElementById('matchday').value='';
+  document.getElementById('teamOwnName').value='';
+  document.getElementById('teamOppName').value='';
+  document.getElementById('matchDate').value='';
+  document.getElementById('matchPlace').value='';
+  document.getElementById('callTime').value='';
+  document.getElementById('matchTime').value='';
+  document.getElementById('generalNotes').value='';
+  setHeaderLogoImage(null);
+  setFooterLogoImage(null);
+  setCrestImage('own', null);
+  setCrestImage('opp', null);
+  try{ localStorage.removeItem('malo-convocazione-full-data'); }catch(e){}
+  showStatus('Tutto azzerato.');
+});
+
+function init(){
+  try{
+    const saved = localStorage.getItem('malo-convocazione-full-data');
+    if(saved){
+      const data = JSON.parse(saved);
+      document.getElementById('headerCustomText').value = data.headerCustomText || '';
+      document.getElementById('teamOwnName').value = data.teamOwnName || '';
+      document.getElementById('teamOppName').value = data.teamOppName || '';
+      document.getElementById('competitionName').value = data.competitionName || '';
+      document.getElementById('matchday').value = data.matchday || '';
+      document.getElementById('matchDate').value = data.matchDate || '';
+      document.getElementById('matchPlace').value = data.matchPlace || '';
+      document.getElementById('callTime').value = data.callTime || '';
+      document.getElementById('matchTime').value = data.matchTime || '';
+      document.getElementById('generalNotes').value = data.generalNotes || '';
+
+      setHeaderLogoImage(data.headerLogo || null);
+      setCrestImage('own', data.ownLogo || null);
+      setCrestImage('opp', data.oppLogo || null);
+      setFooterLogoImage(data.footerLogo || null);
+
+      if(Array.isArray(data.players) && data.players.length > 0){
+        players = data.players.map(p => {
+          let np = newPlayer('', p.nome, p.ruolo);
+          np.convocato = p.convocato !== undefined ? p.convocato : true;
+          np.note = p.note || '';
+          return np;
+        });
+      } else {
+        players = [];
+      }
+    }
+  }catch(e){}
+
+  if(players.length===0){
+    for(let i=0;i<23;i++) players.push(newPlayer());
+  }
+  renderRoster();
+}
+
+init();
+</script>
+</body>
+</html>
